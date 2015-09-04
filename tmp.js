@@ -2,17 +2,22 @@
 
 var _PATH = './index'
 
-var SquidCore = require( _PATH ).core({
+var SquidCore = require( _PATH )
+
+SquidCore.setConfig({
   config: { env: 'prod' }
 })
+
+// var SquidCore = require( _PATH ).core({
+//   config: { env: 'prod' }
+// })
 
 console.log(SquidCore.getConfig('github.pagination.repositories', 'test'))
 console.log(SquidCore._UID)
 
-// var SquidCore2 = require( _PATH ).core({
-//   config: { env: 'prod' }
-// })
-// console.log(SquidCore._UID)
+var SquidCore2 = require( _PATH )
+console.log(SquidCore2._UID)
+
 try
 {
   var model = require( _PATH ).model('test')

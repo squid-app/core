@@ -12,7 +12,7 @@ var should      = require('chai').should()
   , _INDEX_PATH = '../index'
 
 // Setup an App instance w/ `test` env
-var SquidCore = require( _INDEX_PATH ).core({
+var SquidCore = require( _INDEX_PATH ).setConfig({
       config: { env: _ENV }
     })
 

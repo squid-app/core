@@ -5,21 +5,29 @@
  *
  */
 
-var should      = require('chai').should()
-  , pjson       = require('../package.json')          // package.js file
-  , cjson       = require('../lib/config/squid.json') // App config file
-  , _ENV        = 'test'
-  , _INDEX_PATH = '../index'
+var chai            = require('chai')
+  , should          = chai.should()
+  , expect          = chai.expect
+  , assert          = chai.assert
+  , pjson           = require('../package.json')          // package.js file
+  , cjson           = require('../lib/config/squid.json') // App config file
+  , _ENV            = 'test'
+  , _INDEX_PATH     = '../index'
+  , _STORAGE_ENGINE = 'Memory'
 
-// Setup an App instance w/ `test` env
-var SquidCore = require( _INDEX_PATH ).setConfig({
-      config: { env: _ENV }
-    })
+// New Squid Core instance
+var SquidCore = require( _INDEX_PATH )
+
+// Setup App instance w/ `test` environnement
+SquidCore.setup({
+    config: { env: _ENV }
+  , storage: { engine: _STORAGE_ENGINE }
+})
 
 // Test Core library
 describe( '#core', function()
 {
-  it('Get Squid Core version', function()
+  it('Core version up-to-date with package.js', function()
   {
     SquidCore
       ._VERSION
@@ -27,15 +35,16 @@ describe( '#core', function()
       .equal( pjson.version )
   })
 
-  it('Get Squid Config environment', function()
+  it('Get Config environment', function()
   {
     SquidCore
       ._config
       .targetEnv()
-      .should.equal( 'test' )
+      .should
+      .equal( _ENV )
   })
 
-  it('Get Squid deep nested config value', function()
+  it('Get deep nested Config value', function()
   {
     SquidCore
       .getConfig('github.pagination.repositories')
@@ -43,12 +52,80 @@ describe( '#core', function()
       .equal( cjson.default.github.pagination.repositories )
   })
 
-  it('Get Squid default Config value', function()
+  it('Get default Config value', function()
   {
     SquidCore
       .getConfig('fakekey', 'defaultValue')
       .should
       .equal( 'defaultValue' )
+  })
+
+  it('Get Storage engine name', function()
+  {
+    SquidCore
+      ._storage
+      .getEngine()
+      .should
+      .equal( _STORAGE_ENGINE )
+  })
+
+  it('Catch unknow Storage key', function()
+  {
+    (function ()
+    {
+      SquidCore.getStorage('test')
+    })
+      .should
+      .throw( Error )
+  })
+
+  it('Set and Get Storage value', function()
+  {
+    SquidCore._storage.set('test', 'ok')
+
+    SquidCore
+      .getStorage('test')
+      .should
+      .equal( 'ok' )
+  })
+
+  it('User Credentials not define', function()
+  {
+    (function ()
+    {
+      SquidCore.getCredentials()
+    })
+      .should
+      .throw( Error )
+
+    // assert
+    //   .throws( SquidCore.getCredentials, Error, SquidCore._errors.credentialsNotSet )
+  })
+
+  it('User not logged in', function()
+  {
+    SquidCore
+      .isLogin()
+      .should
+      .equal( false )
+  })
+
+  it('Set User Credentials', function()
+  {
+    SquidCore.setCredentials('test')
+
+    SquidCore
+      .getCredentials()
+      .should
+      .equal( 'test' )
+  })
+
+  it('User is logged in', function()
+  {
+    SquidCore
+      .isLogin()
+      .should
+      .equal( true )
   })
 })
 

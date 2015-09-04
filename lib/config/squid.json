@@ -1,14 +1,15 @@
 {
   "default": {
     "github": {
-      "baseurl":         "https://api.github.com/",
+      "baseurl":         "https://api.github.com",
       "headers":  {
         "Accept":        "application/vnd.github.v3+json",
         "Content-Type":  "application/json;charset=UTF-8"
       },
       "pagination": {
         "repositories":   50
-      }
+      },
+      "authorization":    "token"
     }
   }
 }

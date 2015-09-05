@@ -32,7 +32,7 @@ Squid is build on top of cool open source projects such as:
 * [Lodash](https://lodash.com/)
 * [Backbone](http://backbonejs.org/)
 
-All the data are served by the [Github API](https://developer.github.com/v3/).
+All data are served by the [Github API](https://developer.github.com/v3/).
 
 <hr>
 

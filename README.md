@@ -94,7 +94,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 All notable changes to this project will be documented here.
 
-##### [Unreleased][unreleased]
+##### 0.2.0 - 2015-09-08
 * __Added:__
 	* Storage classes
 	* User Credentials manager

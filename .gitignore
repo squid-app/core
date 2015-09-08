@@ -2,5 +2,5 @@
 node_modules
 npm-debug.log
 github.json
-tmp
+tmp.js
 !.gitkeep

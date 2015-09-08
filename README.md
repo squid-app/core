@@ -15,6 +15,8 @@ Device agnostic shared code for OSX and IOS.
 	* Github API services wrapper
 	* Config manager
 	* Storage manager
+	
+#### Github app configuration
 
 The application client ID and his secret are stored into a JSON file called `github.json` at the project's root. For obvious security reasons this file is not published. Here is a sample:
 
@@ -58,7 +60,7 @@ This package is not intended to be used as a stand alone library but you might n
 	
 	// Setup instance with custon settings
 	SquidCore.setup({
-		config:  { env: 'prod' }
+		env:     'dev'
 	  , storage: { engine: 'LocalStorage' }
 	})
 
@@ -80,6 +82,8 @@ This package is not intended to be used as a stand alone library but you might n
 Run the following command to perform unit tests:
 
     $ npm test
+    
+__Warning__: you need to setup the `github.json` to run the test.
 
 ## Contributing
 
@@ -94,12 +98,15 @@ All notable changes to this project will be documented here.
 * __Added:__
 	* Storage classes
 	* User Credentials manager
-	* Add node-fetch to dependencies
+	* Add `squid-config@0.1.0` to dependencies
+	* Add `node-fetch@1.3.2` to dependencies
 	* Application client ID/secret configuration file
 	
 * __Changed:__
-	* Change Core access API
-	* Update README
+	* Change `core` access API
+	* Configuration management is delegated  to `squid-config`
+	* Update Unit Test
+	* Update `README.md`
 	* Remove useless `devDependencies` from `package.js`
 	
 * __Remove:__

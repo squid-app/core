@@ -99,9 +99,12 @@ All notable changes to this project will be documented here.
 	
 * __Changed:__
 	* Change Core access API
-	* Remove `config-manager` module
 	* Update README
 	* Remove useless `devDependencies` from `package.js`
+	
+* __Remove:__
+	* Remove `config-manager` module
+	* Remove `Xhr` class
 
 ##### 0.1.0 - 2015-09-03
 * __Added:__

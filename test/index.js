@@ -9,18 +9,34 @@ var chai            = require('chai')
   , should          = chai.should()
   , expect          = chai.expect
   , assert          = chai.assert
-  , pjson           = require('../package.json')     // package.js file
-  , cjson           = require('../lib/config/test')  // App test config file
   , _ENV            = 'test'
   , _INDEX_PATH     = '../index'
   , _STORAGE_ENGINE = 'Memory'
+  , pjson           = require('../package.json')     // NPM package
+  , cjson           = require('../lib/config/test')  // App test config file
+  , gjson                                            // Github App credentials
+
+try
+{
+  var gjson = require('../github.json')
+}
+catch( e )
+{
+  console.log('------------')
+  console.log('TEST ABORTED')
+  console.log('./github.json file not found, see:')
+  console.log('')
+  console.log('https://github.com/squid-app/core#github-app-configuration')
+  console.log('------------')
+  return
+}
 
 // New Squid Core instance
 var SquidCore = require( _INDEX_PATH )
 
 // Setup App instance w/ `test` environnement
 SquidCore.setup({
-    config: { env: _ENV }
+    env:     _ENV
   , storage: { engine: _STORAGE_ENGINE }
 })
 
@@ -38,13 +54,21 @@ describe( '#core', function()
   it('Get Config environment', function()
   {
     SquidCore
-      ._config
-      .targetEnv()
+      .config()
+      .getEnv()
       .should
       .equal( _ENV )
   })
 
-  it('Get deep nested Config value', function()
+  it('Get Github App client ID', function()
+  {
+    SquidCore
+      .getConfig('github.credentials.id')
+      .should
+      .equal( gjson.id )
+  })
+
+  it('Get Config value', function()
   {
     SquidCore
       .getConfig('github.pagination')
@@ -52,18 +76,10 @@ describe( '#core', function()
       .equal( cjson.github.pagination )
   })
 
-  it('Get default Config value', function()
-  {
-    SquidCore
-      .getConfig('fakekey', 'defaultValue')
-      .should
-      .equal( 'defaultValue' )
-  })
-
   it('Get Storage engine name', function()
   {
     SquidCore
-      ._storage
+      .storage()
       .getEngine()
       .should
       .equal( _STORAGE_ENGINE )
@@ -81,7 +97,7 @@ describe( '#core', function()
 
   it('Set and Get Storage value', function()
   {
-    SquidCore._storage.set('test', 'ok')
+    SquidCore.storage().set('test', 'ok')
 
     SquidCore
       .getStorage('test')
@@ -132,10 +148,10 @@ describe( '#core', function()
 // Test files manager alias
 describe( '#Core/getFile', function()
 {
-  it('Get utils/xhr file', function()
+  it('Get utils/service file', function()
   {
-    var type = ( typeof SquidCore.util('xhr') )
-console.log(type)
+    var type = ( typeof SquidCore.util('service') )
+
     type
       .should
       .equal( 'function' )

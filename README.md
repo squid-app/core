@@ -94,11 +94,12 @@ All notable changes to this project will be documented here.
 * __Added:__
 	* Storage classes
 	* User Credentials manager
-	* Add Promise to dependencies
+	* Add node-fetch to dependencies
 	* Application client ID/secret configuration file
 	
 * __Changed:__
 	* Change Core access API
+	* Remove `config-manager` module
 	* Update README
 	* Remove useless `devDependencies` from `package.js`
 

@@ -9,8 +9,8 @@ var chai            = require('chai')
   , should          = chai.should()
   , expect          = chai.expect
   , assert          = chai.assert
-  , pjson           = require('../package.json')          // package.js file
-  , cjson           = require('../lib/config/squid.json') // App config file
+  , pjson           = require('../package.json')     // package.js file
+  , cjson           = require('../lib/config/test')  // App test config file
   , _ENV            = 'test'
   , _INDEX_PATH     = '../index'
   , _STORAGE_ENGINE = 'Memory'
@@ -47,9 +47,9 @@ describe( '#core', function()
   it('Get deep nested Config value', function()
   {
     SquidCore
-      .getConfig('github.pagination.repositories')
+      .getConfig('github.pagination')
       .should
-      .equal( cjson.default.github.pagination.repositories )
+      .equal( cjson.github.pagination )
   })
 
   it('Get default Config value', function()
@@ -134,8 +134,8 @@ describe( '#Core/getFile', function()
 {
   it('Get utils/xhr file', function()
   {
-    var type = ( typeof require( _INDEX_PATH ).util('xhr') )
-
+    var type = ( typeof SquidCore.util('xhr') )
+console.log(type)
     type
       .should
       .equal( 'function' )
@@ -145,7 +145,7 @@ describe( '#Core/getFile', function()
   {
     (function ()
     {
-      new require( _INDEX_PATH ).util('Unknow')
+      new SquidCore.util('Unknow')
     })
       .should
       .throw( Error )
@@ -156,7 +156,7 @@ describe( '#Core/getFile', function()
 // Test User Model
 
 var userlogin = 'michael-lefebvre'
-  , model     = require( _INDEX_PATH ).model('user')
+  , model     = SquidCore.model('user')
   , user      = new model({ login: userlogin })
 
 describe( '#Models/User', function()

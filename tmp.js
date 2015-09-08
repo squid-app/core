@@ -9,9 +9,28 @@ SquidCore.setup({
   config: { env: 'prod' }
 })
 
+// var service = SquidCore.util('service')
+// console.log(service)
+
+var fetch = require('node-fetch');
+
+// If you are not on node v0.12, set a Promise library first, eg.
+// fetch.Promise = require('bluebird');
+
+// plain text or html
+
+fetch('https://github.com/')
+    .then(function(res) {
+        return res.text();
+    }).then(function(body) {
+        console.log(body);
+    });
+
+return
+
   // config
 console.log('[CONFIG]')
-console.log(SquidCore.getConfig('github.pagination.repositories', 'test'))
+console.log(SquidCore.getConfig('github.pagination', 'test'))
 console.log(SquidCore._UID)
 
   // multiple instance

@@ -95,8 +95,12 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
+* none
+
+##### 0.3.0 - 2015-09-10
 * __Added:__
 	* Add `winston@1.0.1` to dependencies 
+	* Setup logger
 
 ##### 0.2.0 - 2015-09-08
 * __Added:__

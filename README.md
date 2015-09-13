@@ -5,16 +5,16 @@ Device agnostic shared code for OSX and IOS.
 
 #### Package include
 
-* Default JSON config files
+* Configuration files based on environment
+* Unit tests
 * Backbone's Models
 * Backbone's Collections
 * Reflux Actions
 * Reflux Stores
-* Utils classes
-	* XHR Library
+* Utils:
 	* Github API services wrapper
-	* Config manager
-	* Storage manager
+	* Logger class
+	* Storage abstraction class
 	
 #### Github app configuration
 
@@ -33,6 +33,8 @@ Squid is build on top of cool open source projects such as:
 * [Reflux](https://github.com/reflux/refluxjs)
 * [Lodash](https://lodash.com/)
 * [Backbone](http://backbonejs.org/)
+* [Winston](https://github.com/winstonjs/winston)
+* [Squid Config](https://github.com/squid-app/config)
 
 All data are served by the [Github API](https://developer.github.com/v3/).
 
@@ -41,10 +43,12 @@ All data are served by the [Github API](https://developer.github.com/v3/).
 #### Table of Content
 
 * [Installation](#installation)
-* [Usage examples](#usage-examples)
+* [Basic usage examples](#basic-usage-examples)
 * [Unit Tests](#unit-tests)
 * [Contributing](#contributing)
-* [Release History](#release-history)
+* [Roadmap](#roadmap)
+* [License](#license)
+* [Release History](CHANGELOG.md)
 
 
 ## Installation
@@ -53,7 +57,7 @@ This package is not intended to be used as a stand alone library but you might n
 
     $ npm install
 
-## Usage examples
+## Basic usage examples
 
 	// New Squid Core instance
 	var SquidCore = require('squid-core')
@@ -64,11 +68,11 @@ This package is not intended to be used as a stand alone library but you might n
 	  , storage: { engine: 'LocalStorage' }
 	})
 
-	SquidCore._VERSION // return '0.1.1'
+	SquidCore._VERSION // return '0.3.1'
 
 	// Get config value
 	SquidCore
-      .getConfig('github.pagination.repositories') // return '50'
+      .getConfig('github.pagination') // return '50'
 
 	// New User model
 	var username = 'michael'
@@ -85,45 +89,15 @@ Run the following command to perform unit tests:
     
 __Warning__: you need to setup the `github.json` to run the test.
 
+## Roadmap
+
+See the [roadmap](https://github.com/squid-app/core/milestones) future developments.
+
+## License
+
+Squid is [MIT licensed](./LICENSE)
+
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 Add unit tests for any new or changed functionality. Lint and test your code.
-
-## Release History
-
-All notable changes to this project will be documented here.
-
-##### [Unreleased][unreleased]
-* none
-
-##### 0.3.0 - 2015-09-10
-* __Added:__
-	* Add `winston@1.0.1` to dependencies 
-	* Setup logger
-
-##### 0.2.0 - 2015-09-08
-* __Added:__
-	* Storage classes
-	* User Credentials manager
-	* Add `squid-config@0.1.0` to dependencies
-	* Add `node-fetch@1.3.2` to dependencies
-	* Application client ID/secret configuration file
-	
-* __Changed:__
-	* Change `core` access API
-	* Configuration management is delegated  to `squid-config`
-	* Update Unit Test
-	* Update `README.md`
-	* Remove useless `devDependencies` from `package.js`
-	
-* __Remove:__
-	* Remove `config-manager` module
-	* Remove `Xhr` class
-
-##### 0.1.0 - 2015-09-03
-* __Added:__
-	* Package folders structure
-	* Core Classes
-	* Base unit test
-	* README and LICENSE files

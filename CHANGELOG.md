@@ -3,7 +3,18 @@
 All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
-* none
+
+__Added:__
+
+* Create `services` folders
+* Add `github.js` to services, wip
+
+
+__Changed:__ 
+
+* Update Logger API with formated messages ALA sprintf 
+* Rename User credentials to Token
+* Add `bluebird@2.10.0` to dependencies
 
 ### 0.3.1 - 2015-09-13
 
@@ -14,6 +25,7 @@ __Changed:__
 * Move Release History to `CHANGELOG.md` file
 
 ### 0.3.0 - 2015-09-10
+
 __Added:__
 
 * Add `winston@1.0.1` to dependencies 

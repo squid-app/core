@@ -105,11 +105,11 @@ describe( '#core', function()
       .equal( 'ok' )
   })
 
-  it('User Credentials not define', function()
+  it('Github token not define', function()
   {
     (function ()
     {
-      SquidCore.getCredentials()
+      SquidCore.getGithubToken()
     })
       .should
       .throw( Error )
@@ -126,12 +126,12 @@ describe( '#core', function()
       .equal( false )
   })
 
-  it('Set User Credentials', function()
+  it('Set Github token', function()
   {
-    SquidCore.setCredentials('test')
+    SquidCore.setGithubToken('test')
 
     SquidCore
-      .getCredentials()
+      .getGithubToken()
       .should
       .equal( 'test' )
   })

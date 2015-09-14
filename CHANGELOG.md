@@ -7,7 +7,7 @@ All notable changes to this project will be documented here.
 __Added:__
 
 * Create `services` folders
-* Add `github.js` to services, wip
+* Add `github.js` to services
 
 
 __Changed:__ 

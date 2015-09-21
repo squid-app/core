@@ -15,6 +15,7 @@ __Changed:__
 * Update Logger API with formated messages ALA `sprintf`
 * Rename User credentials to Token as it refer to Github token
 * Add `bluebird@2.10.0` to dependencies
+* Rename github token key to `_GHTOKENKEYNAME`
 
 __Remove:__
 

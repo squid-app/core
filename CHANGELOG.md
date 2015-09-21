@@ -16,6 +16,10 @@ __Changed:__
 * Rename User credentials to Token as it refer to Github token
 * Add `bluebird@2.10.0` to dependencies
 * Rename github token key to `_GHTOKENKEYNAME`
+* Rename `isLogin` method to `isLogged`
+* `isLogged` return promise
+* Update `.gitignore` file
+* Update unit test
 
 __Remove:__
 

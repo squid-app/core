@@ -16,6 +16,7 @@ var chai            = require('chai')
   , cjson           = require('../lib/config/test')  // App test config file
   , gjson                                            // Github App credentials
 
+// Github App credentials
 try
 {
   var gjson = require('../github.json')
@@ -24,9 +25,28 @@ catch( e )
 {
   console.log('------------')
   console.log('TEST ABORTED')
-  console.log('./github.json file not found, see:')
+  console.log('../github.json file not found, see:')
   console.log('')
   console.log('https://github.com/squid-app/core#github-app-configuration')
+  console.log('------------')
+  return
+}
+
+// Github User Credentials
+var ujson = false
+
+try
+{
+  ujson = require('../user.json')
+}
+catch( e )
+{
+  console.log('------------')
+  console.log('TEST ABORTED')
+  console.log('./user.json file not found')
+  console.log('could not test API login:')
+  console.log('')
+  console.log('https://github.com/squid-app/core#unit-tests')
   console.log('------------')
   return
 }
@@ -121,27 +141,34 @@ describe( '#core', function()
   it('User not logged in', function()
   {
     SquidCore
-      .isLogin()
-      .should
-      .equal( false )
+      .isLogged()
+      .then( function fulfilled( result )
+      {
+        throw new Error('Promise was unexpectedly fulfilled. Result: ' + result)
+      }, function rejected( err )
+      {
+        err.message.should.equal( '[Core] missing Github token' )
+      })
   })
 
   it('Set Github token', function()
   {
-    SquidCore.setGithubToken('test')
+    SquidCore.setGithubToken( ujson.token )
 
     SquidCore
       .getGithubToken()
       .should
-      .equal( 'test' )
+      .equal( ujson.token )
   })
 
   it('User is logged in', function()
   {
-    SquidCore
-      .isLogin()
-      .should
-      .equal( true )
+    return SquidCore
+      .isLogged()
+      .then( function fulfilled( result )
+      {
+        result.token.should.equal( ujson.token )
+      })
   })
 })
 

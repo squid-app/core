@@ -83,11 +83,17 @@ This package is not intended to be used as a stand alone library but you might n
 
 ## Unit Tests
 
-Run the following command to perform unit tests:
+First you need to setup the `./github.json` and add a `user.json` to the folder root with the following content:
+
+	{
+	  "username": "a-valid-gitub-username",
+	  "password": "a-valid-gitub-password",
+	  "token":    "a-valid-oauth-token"
+	}
+
+Then run the following command to perform unit tests:
 
     $ npm test
-    
-__Warning__: you need to setup the `github.json` to run the test.
 
 ## Roadmap
 

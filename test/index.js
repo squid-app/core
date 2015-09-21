@@ -148,9 +148,9 @@ describe( '#core', function()
 // Test files manager alias
 describe( '#Core/getFile', function()
 {
-  it('Get utils/service file', function()
+  it('Get services/github file', function()
   {
-    var type = ( typeof SquidCore.util('service') )
+    var type = ( typeof SquidCore.service('github') )
 
     type
       .should

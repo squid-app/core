@@ -1,7 +1,21 @@
+# OSX pollution
 .DS_Store
-logs/all-logs.log
+
+# NPM stuffs
 node_modules
 npm-debug.log
+
+# Core Logger dump
+logs/*
+
+# GH App's settings
 github.json
+
+# GH test user
+user.json
+
+# dev sandbox
 tmp.js
+
+# keep empty forlders
 !.gitkeep

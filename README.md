@@ -15,15 +15,6 @@ Device agnostic shared code for OSX and IOS.
 	* Github API services wrapper
 	* Logger class
 	* Storage abstraction class
-	
-#### Github app configuration
-
-The application client ID and his secret are stored into a JSON file called `github.json` at the project's root. For obvious security reasons this file is not published. Here is a sample:
-
-	{
-	  "id":     "xxxx",
-	  "secret": "xxxx"
-	}
 
 #### Dependencies
 
@@ -56,6 +47,10 @@ All data are served by the [Github API](https://developer.github.com/v3/).
 This package is not intended to be used as a stand alone library but you might need to install it for development purpose with the following command:
 
     $ npm install
+	
+#### Github app configuration
+
+The application client ID and his secret are stored into a JSON file called `github.json` at the project's root. For obvious security reasons this file is not published. See [Unit Tests](#unit-tests)' section for more details about file content.
 
 ## Basic usage examples
 
@@ -63,10 +58,18 @@ This package is not intended to be used as a stand alone library but you might n
 	var SquidCore = require('squid-core')
 	
 	// Setup instance with custon settings
-	SquidCore.setup({
-		env:     'dev'
-	  , storage: { engine: 'LocalStorage' }
-	})
+    SquidCore.setup({
+        config:   {
+            logger: false
+          , github: {
+              credentials: {
+                  client_id:     GITHUB.client_id
+                , client_secret: GITHUB.client_secret
+              }
+            }
+        }
+      , env: 'test'
+    })
 
 	SquidCore._VERSION // return '0.3.1'
 
@@ -83,12 +86,14 @@ This package is not intended to be used as a stand alone library but you might n
 
 ## Unit Tests
 
-First you need to setup the `./github.json` and add a `user.json` to the folder root with the following content:
+First you need to add the [`./github.json`](#github-app-configuration) to the package root with the following content:
 
 	{
-	  "username": "a-valid-gitub-username",
-	  "password": "a-valid-gitub-password",
-	  "token":    "a-valid-oauth-token"
+	  "client_id":     "xxxx",
+	  "client_secret": "xxxx"
+	  "username":      "a-valid-gitub-username",
+	  "password":      "a-valid-gitub-password",
+	  "token":         "a-valid-oauth-token-or-false"
 	}
 
 Then run the following command to perform unit tests:

@@ -11,9 +11,6 @@ logs/*
 # GH App's settings
 github.json
 
-# GH test user
-user.json
-
 # dev sandbox
 tmp.js
 

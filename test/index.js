@@ -16,7 +16,7 @@ var chai            = require('chai')
   , cjson           = require('../lib/config/test')  // App test config file
   , gjson                                            // Github App credentials
 
-// Github App credentials
+// Github App/user credentials
 try
 {
   var gjson = require('../github.json')
@@ -32,32 +32,24 @@ catch( e )
   return
 }
 
-// Github User Credentials
-var ujson = false
-
-try
-{
-  ujson = require('../user.json')
-}
-catch( e )
-{
-  console.log('------------')
-  console.log('TEST ABORTED')
-  console.log('./user.json file not found')
-  console.log('could not test API login:')
-  console.log('')
-  console.log('https://github.com/squid-app/core#unit-tests')
-  console.log('------------')
-  return
-}
-
 // New Squid Core instance
 var SquidCore = require( _INDEX_PATH )
 
 // Setup App instance w/ `test` environnement
 SquidCore.setup({
-    env:     _ENV
-  , storage: { engine: _STORAGE_ENGINE }
+    config:   {
+        // disable logger for test
+        logger: false
+      , storage: { engine: _STORAGE_ENGINE }
+      , github: {
+            pagination:  10
+          , credentials: {
+                client_id:     gjson.client_id
+              , client_secret: gjson.client_secret
+            }
+        }
+    }
+  , env: _ENV
 })
 
 // Test Core library
@@ -83,9 +75,9 @@ describe( '#core', function()
   it('Get Github App client ID', function()
   {
     SquidCore
-      .getConfig('github.credentials.id')
+      .getConfig('github.credentials.client_id')
       .should
-      .equal( gjson.id )
+      .equal( gjson.client_id )
   })
 
   it('Get Config value', function()
@@ -153,12 +145,12 @@ describe( '#core', function()
 
   it('Set Github token', function()
   {
-    SquidCore.setGithubToken( ujson.token )
+    SquidCore.setGithubToken( gjson.token )
 
     SquidCore
       .getGithubToken()
       .should
-      .equal( ujson.token )
+      .equal( gjson.token )
   })
 
   it('User is logged in', function()
@@ -167,7 +159,7 @@ describe( '#core', function()
       .isLogged()
       .then( function fulfilled( result )
       {
-        result.token.should.equal( ujson.token )
+        result.token.should.equal( gjson.token )
       })
   })
 })

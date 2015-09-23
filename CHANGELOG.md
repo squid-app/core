@@ -7,15 +7,15 @@ All notable changes to this project will be documented here.
 __Added:__
 
 * Create `services` folders for data provider like Gihub or Parse
-* Create `github.js` to services, no unit test yet
+* Create `github.js` service, partial unit test
 
 
 __Changed:__ 
 
 * Update Logger API with formated messages ALA `sprintf`
-* Rename User credentials to Token as it refer to Github token
-* Add `bluebird@2.10.0` to dependencies
-* Rename github token key to `_GHTOKENKEYNAME`
+* Rename User credentials to `_GHTOKENKEYNAME` as it refer to Github token
+* Rename Github credentials keys to be consistent with GH API.
+* Add `bluebird@2.10.0` to dependencies (promise library)
 * Rename `isLogin` method to `isLogged`
 * `isLogged` return promise
 * Update `.gitignore` file
@@ -23,7 +23,7 @@ __Changed:__
 
 __Remove:__
 
-* `utils/service.js`, remplace by `services/github.js`
+* `utils/service.js`, remplaced by `services/github.js`
 
 
 ### 0.3.1 - 2015-09-13

@@ -4,6 +4,8 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+### 0.4.0 - 2015-09-25
+
 __Added:__
 
 * Create `services` folders for data provider like Gihub or Parse

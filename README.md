@@ -47,7 +47,7 @@ All data are served by the [Github API](https://developer.github.com/v3/).
 This package is not intended to be used as a stand alone library but you might need to install it for development purpose with the following command:
 
     $ npm install
-	
+
 #### Github app configuration
 
 The application client ID and his secret are stored into a JSON file called `github.json` at the project's root. For obvious security reasons this file is not published. See [Unit Tests](#unit-tests)' section for more details about file content.
@@ -56,7 +56,7 @@ The application client ID and his secret are stored into a JSON file called `git
 
 	// New Squid Core instance
 	var SquidCore = require('squid-core')
-	
+
 	// Setup instance with custon settings
     SquidCore.setup({
         config:   {
@@ -71,7 +71,7 @@ The application client ID and his secret are stored into a JSON file called `git
       , env: 'test'
     })
 
-	SquidCore._VERSION // return '0.3.1'
+	SquidCore._VERSION // return '0.4.0'
 
 	// Get config value
 	SquidCore

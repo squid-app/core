@@ -8,6 +8,9 @@ __Added:__
 
 * Create `services` folders for data provider like Gihub or Parse
 * Create `github.js` service, partial unit test
+* Create `repositories` and `issues` stores files
+* Create `issues` and `comments` collection files
+* Add `Error` log to transport config
 
 
 __Changed:__ 

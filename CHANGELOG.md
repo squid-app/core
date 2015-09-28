@@ -4,6 +4,14 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+### 0.4.1 - 2015-09-28
+
+__Changed:__
+
+* split actions and stores classes into distincts files
+* fix Core Alias typo
+
+
 ### 0.4.0 - 2015-09-25
 
 __Added:__
@@ -15,7 +23,7 @@ __Added:__
 * Add `Error` log to transport config
 
 
-__Changed:__ 
+__Changed:__
 
 * Update Logger API with formated messages ALA `sprintf`
 * Rename User credentials to `_GHTOKENKEYNAME` as it refer to Github token
@@ -33,17 +41,17 @@ __Remove:__
 
 ### 0.3.1 - 2015-09-13
 
-__Changed:__  
+__Changed:__
 
 * get core _VERSION from `package.json`
-* Move Logger setup to `utils/logger.js`  
+* Move Logger setup to `utils/logger.js`
 * Move Release History to `CHANGELOG.md` file
 
 ### 0.3.0 - 2015-09-10
 
 __Added:__
 
-* Add `winston@1.0.1` to dependencies 
+* Add `winston@1.0.1` to dependencies
 * Setup logger
 
 ### 0.2.0 - 2015-09-08
@@ -55,7 +63,7 @@ __Added:__
 * Add `squid-config@0.1.0` to dependencies
 * Add `node-fetch@1.3.2` to dependencies
 * Application client ID/secret configuration file
-	
+
 __Changed:__
 
 * Change `core` access API
@@ -63,7 +71,7 @@ __Changed:__
 * Update Unit Test
 * Update `README.md`
 * Remove useless `devDependencies` from `package.js`
-	
+
 __Remove:__
 
 * Remove `config-manager` module

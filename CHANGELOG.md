@@ -4,6 +4,12 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+### 0.4.2 - 2015-09-28
+
+__Changed:__
+
+* Resolve package.json path in desktop
+
 ### 0.4.1 - 2015-09-28
 
 __Changed:__

@@ -14,6 +14,8 @@
 
 // Core App
 // -----------
+
+// Core instance
 var core = require('./lib/core')
 
 // Current version of the library from package file

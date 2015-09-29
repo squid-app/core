@@ -4,6 +4,14 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+### 0.4.3 - 2015-09-29
+
+__Changed:__
+
+* Move back Core _version variable
+* Make Logger optional
+* Default config file path is an option, `configPath` (TODO: find better name)
+
 ### 0.4.2 - 2015-09-28
 
 __Changed:__

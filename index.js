@@ -18,7 +18,4 @@
 // Core instance
 var core = require('./lib/core')
 
-// Current version of the library from package file
-core._VERSION = require( __dirname + '/package.json').version
-
 module.exports = core

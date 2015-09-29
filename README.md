@@ -59,7 +59,7 @@ The application client ID and his secret are stored into a JSON file called `git
 
 	// Setup instance with custon settings
     SquidCore.setup({
-        config:   {
+        locale:   {
             logger: false
           , github: {
               credentials: {
@@ -68,7 +68,7 @@ The application client ID and his secret are stored into a JSON file called `git
               }
             }
         }
-      , env: 'test'
+      , envName: 'test'
     })
 
 	SquidCore._VERSION // return '0.4.0'

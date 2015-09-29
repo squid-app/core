@@ -4,6 +4,19 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+### 0.4.5 - 2015-09-30
+
+__Changed:__
+
+* update unit test
+* update README.md and CHANGELOG.md
+
+### 0.4.4 - 2015-09-30
+
+__Changed:__
+
+* Implement new Squid Config class
+
 ### 0.4.3 - 2015-09-29
 
 __Changed:__

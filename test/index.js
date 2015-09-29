@@ -37,7 +37,7 @@ var SquidCore = require( _INDEX_PATH )
 
 // Setup App instance w/ `test` environnement
 SquidCore.setup({
-    config:   {
+    locale:   {
         // disable logger for test
         logger: false
       , storage: { engine: _STORAGE_ENGINE }
@@ -49,7 +49,7 @@ SquidCore.setup({
             }
         }
     }
-  , env: _ENV
+  , envName: _ENV
 })
 
 // Test Core library

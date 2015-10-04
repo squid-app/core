@@ -4,6 +4,14 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+### 0.4.6 - 2015-10-05
+
+__Changed:__
+
+* Update default config file path
+* update README.md and CHANGELOG.md
+
+
 ### 0.4.5 - 2015-09-30
 
 __Changed:__

@@ -4,6 +4,13 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+### 0.4.7 - 2015-10-05
+
+__Changed:__
+
+* Logger as external dependency
+
+
 ### 0.4.6 - 2015-10-05
 
 __Changed:__

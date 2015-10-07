@@ -4,6 +4,19 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+
+__Changed:__
+
+* `utils/storage` and `utils/logger` works are service provider now.
+* Move `lib/storage/memory.js` to `lib/abstracts/storage.js`
+* Remove first argument from `Core.log()`
+* Move `winston.js` from dependencies to dev-dependencies
+
+
+__Added:__
+
+* `lib/abstracts/logger` as default log service.
+
 ### 0.4.7 - 2015-10-05
 
 __Changed:__

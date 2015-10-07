@@ -1,5 +1,5 @@
 /**
- * Squid Core
+ * Squid Core test file, to be remove
  *
  * Advanced logging with NodeJs
  * http://tostring.it/2014/06/23/advanced-logging-with-nodejs/

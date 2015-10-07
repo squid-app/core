@@ -4,6 +4,14 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+### 0.4.9 - 2015-10-07
+
+__Changed:__
+
+* fix `utils/logger` illegal invocation
+
+
+### 0.4.8 - 2015-10-07
 
 __Changed:__
 

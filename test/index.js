@@ -11,7 +11,9 @@ var chai            = require('chai')
   , assert          = chai.assert
   , _ENV            = 'test'
   , _INDEX_PATH     = '../index'
-  , _STORAGE_ENGINE = 'Memory'
+  , _STORAGE_ENGINE = 'MEMORY'
+  , _LOGGER_ENGINE  = 'BASIC'
+  , displayLogger   = true
   , pjson           = require('../package.json')     // NPM package
   , cjson           = require('../lib/config/test')  // App test config file
   , gjson                                            // Github App credentials
@@ -38,16 +40,16 @@ var SquidCore = require( _INDEX_PATH )
 // Setup App instance w/ `test` environnement
 SquidCore.setup({
     locale:   {
-        // disable logger for test
-        logger: false
-      , storage: { engine: _STORAGE_ENGINE }
-      , github: {
+        github: {
             pagination:  10
           , credentials: {
                 client_id:     gjson.client_id
               , client_secret: gjson.client_secret
             }
         }
+        // if displayLogger if `false`
+        // uncomment next line
+      // , logger: false
     }
   , envName: _ENV
 })
@@ -86,6 +88,15 @@ describe( '#core', function()
       .getConfig('github.pagination')
       .should
       .equal( cjson.github.pagination )
+  })
+
+  it('Get Logger engine name', function()
+  {
+    SquidCore
+      .logger()
+      .getEngine()
+      .should
+      .equal( displayLogger ? _LOGGER_ENGINE : false )
   })
 
   it('Get Storage engine name', function()

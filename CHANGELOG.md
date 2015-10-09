@@ -4,6 +4,15 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+__Changed:__
+
+* fix scope in logger print method
+* set `utils/storage` as a service provider
+* fix `getFile` method path && remove useless error message
+* clean options
+* add logger engine to basic logs
+* update unit test
+
 ### 0.4.9 - 2015-10-07
 
 __Changed:__

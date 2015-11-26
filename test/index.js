@@ -128,6 +128,20 @@ describe( '#core', function()
       .equal( 'ok' )
   })
 
+  it('Remove Storage key', function()
+  {
+    (function ()
+    {
+      SquidCore
+        .storage()
+        .remove('test')
+
+      SquidCore.getStorage('test')
+    })
+      .should
+      .throw( Error )
+  })
+
   it('Github token not define', function()
   {
     (function ()
@@ -172,6 +186,19 @@ describe( '#core', function()
       {
         result.token.should.equal( gjson.token )
       })
+  })
+
+  it('Clear Storage', function()
+  {
+    SquidCore
+      .storage()
+      .clear()
+
+    SquidCore
+      .storage()
+      .length()
+      .should
+      .equal(0)
   })
 })
 

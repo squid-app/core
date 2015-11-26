@@ -4,6 +4,15 @@ All notable changes to this project will be documented here.
 
 ##### [Unreleased][unreleased]
 
+### 0.4.11 - 2015-11-26
+
+__Changed:__
+
+* add `remove`, `length` and `clear` methods to Storage class
+* update unit test
+
+### 0.4.10 - 2015-10-10
+
 __Changed:__
 
 * fix scope in logger print method
